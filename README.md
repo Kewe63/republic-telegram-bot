@@ -253,3 +253,6 @@ python-dotenv==1.0.1
 - Never commit your `.env` file to Git
 - Back up `state.json` (it stores proposal and jail history)
 - Never share your bot token with anyone
+
+
+ -Built with ❤️ for the Republic AI Network validator community. 
