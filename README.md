@@ -22,6 +22,12 @@ A Telegram bot for real-time monitoring of your Republic AI Network validator no
 | `/slashing` | Slashing parameters |
 | `/network` | Network statistics (chain ID, block height, total power) |
 
+---
+
+<img width="412" height="437" alt="image" src="https://github.com/user-attachments/assets/9b34f00d-f0b8-4268-86b0-a35e1df92cb5" />
+
+---
+
 ### Automatic Alerts
 | Alert | Trigger |
 |---|---|
@@ -253,11 +259,7 @@ python-dotenv==1.0.1
 - Never commit your `.env` file to Git  
 - Back up `state.json` (it stores proposal and jail history)
 - Never share your bot token with anyone
-
----
-
-<img width="412" height="437" alt="image" src="https://github.com/user-attachments/assets/9b34f00d-f0b8-4268-86b0-a35e1df92cb5" />
-
+- 
 ---
 
 - Built with ❤️ for the Republic AI Network validator community. 
