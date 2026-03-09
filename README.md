@@ -245,14 +245,16 @@ python-dotenv==1.0.1
 - Bot state is stored in `state.json` (seen proposals, jail history, language preferences, uptime alert state)
 - Data source: Tendermint RPC + Cosmos REST API
 - `state.json` is created automatically on first run and resets if deleted
-
+- 
 ---
 
 ## ⚠️ Security
 
-- Never commit your `.env` file to Git
+- Never commit your `.env` file to Git  
 - Back up `state.json` (it stores proposal and jail history)
 - Never share your bot token with anyone
 
+---
 
  -Built with ❤️ for the Republic AI Network validator community. 
+ 
