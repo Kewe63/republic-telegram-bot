@@ -256,5 +256,5 @@ python-dotenv==1.0.1
 
 ---
 
- -Built with ❤️ for the Republic AI Network validator community. 
+- Built with ❤️ for the Republic AI Network validator community. 
  
