@@ -49,35 +49,126 @@ republic telegram bot/
 
 ## ⚙️ Setup
 
-### 1. Install Requirements
+### Prerequisites
+- Python 3.10 or higher
+- A Telegram account
+- Republic AI Network validator node (optional for monitoring)
 
-Python 3.10 or higher is required.
+### 1. Install Python Dependencies
+
+First, ensure you have Python 3.10+ installed. You can check your version with:
+
+```bash
+python --version
+```
+
+If you don't have Python, download it from [python.org](https://www.python.org/downloads/).
+
+Install the required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Create Configuration File
+This will install:
+- `python-telegram-bot`: For Telegram bot functionality
+- `aiohttp`: For HTTP requests to blockchain APIs
+- `python-dotenv`: For loading environment variables from .env file
+
+### 2. Create Telegram Bot
+
+1. Open Telegram and search for `@BotFather`
+2. Send `/newbot` command
+3. Follow the prompts to create your bot and get the **BOT TOKEN**
+4. Copy the token (it looks like `123456789:ABCdef...`)
+
+### 3. Get Chat ID
+
+You need the chat ID where the bot will send alerts. For a group:
+
+1. Add your bot to the desired Telegram group
+2. Send a message in the group
+3. Visit `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates` in your browser
+4. Look for `"chat":{"id":<CHAT_ID>}` in the response
+5. Copy the negative number (e.g., `-100123456789`)
+
+For personal use, you can message the bot and use your user ID.
+
+### 4. Configure Validator Information
+
+If you have a Republic AI validator:
+
+- **VALIDATOR_ADDR**: Your validator address (starts with `raivaloper1...`)
+- **WALLET_ADDR**: Your wallet address (starts with `rai1...`)
+- **MONIKER**: Your validator name
+
+You can find these in your validator setup or blockchain explorer.
+
+### 5. Create Configuration File
+
+Copy the example configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-Then open `.env` in a text editor and fill in your values:
+Edit `.env` with your values:
 
 ```env
-TELEGRAM_TOKEN=123456789:ABCdef...
-CHAT_ID=-100123456789
+# Required
+TELEGRAM_TOKEN=your_bot_token_here
+CHAT_ID=your_chat_id_here
+
+# Optional (for validator monitoring)
 VALIDATOR_ADDR=raivaloper1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 WALLET_ADDR=rai1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-MONIKER=MyValidator
+MONIKER=YourValidatorName
+
+# Optional customizations
+ADMIN_IDS=123456789,987654321  # Comma-separated Telegram user IDs for admin access
+UPTIME_ALERT_THRESHOLD=95.0     # Alert when uptime drops below this %
 ```
 
-### 3. Start the Bot
+### 6. Start the Bot
+
+Run the bot:
 
 ```bash
 python rai_bot.py
 ```
+
+The bot will start and begin monitoring. You should see output like:
+```
+Bot started successfully!
+Monitoring validator: YourValidatorName
+```
+
+### 7. Test the Bot
+
+Send `/start` to your bot or in the group to see available commands.
+
+---
+
+## 🔧 Troubleshooting
+
+### Bot doesn't respond
+- Check your `TELEGRAM_TOKEN` is correct
+- Ensure the bot is added to the group (if using group chat)
+- Verify `CHAT_ID` matches the group/user ID
+
+### Validator data not showing
+- Confirm `VALIDATOR_ADDR` and `WALLET_ADDR` are correct
+- Check network connectivity to Republic AI APIs
+- Ensure your validator is active on the network
+
+### Permission errors
+- Make sure `.env` file exists and is readable
+- Check file permissions if running on Linux/Mac
+
+### Python errors
+- Verify Python 3.10+ is installed
+- Try `pip install --upgrade pip` then reinstall requirements
+- Check for conflicting Python installations
 
 ---
 
