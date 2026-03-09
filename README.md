@@ -256,5 +256,9 @@ python-dotenv==1.0.1
 
 ---
 
+<img width="412" height="437" alt="image" src="https://github.com/user-attachments/assets/9b34f00d-f0b8-4268-86b0-a35e1df92cb5" />
+
+---
+
 - Built with ❤️ for the Republic AI Network validator community. 
  
